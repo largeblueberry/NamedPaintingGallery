@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Centered ImageView for Artwork -->
+    <ImageView
+        android:id="@+id/artImage"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+    <!--contentDescription 이 부분은 스크린 리더를 활용하는 기능-->
+
+    <!-- Centered Art Title -->
+    <TextView
+        android:id="@+id/artTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artImage"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Woman with Parasol"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- Centered Artist Name with Clickable Functionality -->
+    <TextView
+        android:id="@+id/artistName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artTitle"
+        android:layout_marginTop="4dp"
+        android:layout_centerHorizontal="true"
+        android:text="Millet"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Centered Artwork Description -->
+    <TextView
+        android:id="@+id/artworkDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artistName"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="This is the description of the artwork..."
+        android:textSize="14sp"/>
+
+</RelativeLayout>
