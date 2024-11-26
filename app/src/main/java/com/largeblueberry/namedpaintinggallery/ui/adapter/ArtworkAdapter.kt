@@ -8,15 +8,16 @@ import com.largeblueberry.namedpaintinggallery.data.models.Artwork
 import com.largeblueberry.namedpaintinggallery.databinding.ArtitemBinding
 
 class ArtworkAdapter(
-    private  val artworks: List<Artwork>,
-    private  val onLoadImage: (String,ImageView)-> Unit
+    private val artworks: List<Artwork>,
+    private val onLoadImage: (String, ImageView) -> Unit
+) : RecyclerView.Adapter<ArtworkAdapter.ArtworkViewHolder>() {
 
-): RecyclerView.Adapter<ArtworkAdapter.ArtworkViewHolder>() {
-    inner class ArtworkViewHolder(private val binding: ArtitemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ArtworkViewHolder(private val binding: ArtitemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(artwork: Artwork) {
             binding.artTitle.text = artwork.title
             binding.artistName.text = artwork.artistName
-            onLoadImage(artwork.imageId, binding.artImage)
+            onLoadImage(artwork.imageUrl, binding.artImage) // 이미지 로드
+
         }
     }
 
@@ -30,5 +31,4 @@ class ArtworkAdapter(
     }
 
     override fun getItemCount(): Int = artworks.size
-
 }

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.largeblueberry.namedpaintinggallery" />
+                  <option name="mobileSdkAppId" value="1:928220830190:android:7d21766b38596a1db396ff" />
+                  <option name="projectId" value="artgallery-fb998" />
+                  <option name="projectNumber" value="928220830190" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

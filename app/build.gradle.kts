@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.largeblueberry.namedpaintinggallery"
-    compileSdk = 28 // API Level 28
+    compileSdk = 34 // 최신 API Level로 업데이트
 
     defaultConfig {
         applicationId = "com.largeblueberry.namedpaintinggallery"
-        minSdk = 21 // 최소 SDK 버전 설정
-        targetSdk = 28 // API Level 28
+        minSdk = 26 // 최소 SDK 그대로 유지
+        targetSdk = 34 // Google Play 요구사항 충족
         versionCode = 1
         versionName = "1.0"
 
@@ -37,40 +37,36 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    // AndroidX Core (API 28 호환)
-    implementation("androidx.core:core:1.10.1")
-    implementation("androidx.core:core-ktx:1.10.1")
-
-    // AndroidX 라이브러리
+    // AndroidX Libraries
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
     // Firebase Libraries (using BOM)
-    implementation(platform("com.google.firebase:firebase-bom:31.1.0"))
+    implementation(platform(libs.firebase.bom))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
 
-    // ViewPager2
-    implementation("androidx.viewpager2:viewpager2:1.1.0")
+    // ViewPager2 and RecyclerView
+    implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.recyclerview)
 
-    // RecyclerView
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    // Glide for image loading
+    implementation(libs.glide)
+    kapt(libs.glide)
 
-    // Glide 이미지 로더
-    implementation("com.github.bumptech.glide:4.15.1")
-    kapt("com.github.bumptech.glide:compiler:4.15.1")
-
-    // Palette (이미지 색상 추출)
-    implementation("androidx.palette:palette:1.0.0")
+    // Palette for extracting image colors
+    implementation(libs.androidx.palette)
 
     // Test Dependencies
     testImplementation(libs.junit)

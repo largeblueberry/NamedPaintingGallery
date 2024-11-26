@@ -9,7 +9,8 @@
         android:layout_height="400dp"
         android:scaleType="centerCrop"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/Artwork"/>
     <!--contentDescription 이 부분은 스크린 리더를 활용하는 기능-->
 
     <!-- Centered Art Title -->
