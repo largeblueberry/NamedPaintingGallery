@@ -1,0 +1,81 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 유용한 기능 -->
+    <PreferenceCategory app:title="유용한 기능">
+
+        <ListPreference
+            app:defaultValue="ko"
+            app:key="언어"
+            app:summary="앱 언어를 선택하세요"
+            app:title="언어" />
+
+        <SwitchPreferenceCompat
+            app:key="알림"
+            app:summary="알림을 활성화하거나 비활성화합니다"
+            app:title="알림" />
+
+    </PreferenceCategory>
+
+    <!-- 회원가입 설정 -->
+    <PreferenceCategory app:title="회원가입 설정">
+
+        <Preference
+            app:key="로그인_회원가입"
+            app:summary="계정 관리를 위해 로그인하거나 회원가입하세요"
+            app:title="로그인/회원가입" />
+
+        <SwitchPreferenceCompat
+            app:key="이용약관_동의"
+            app:summary="서비스 이용 약관에 동의하세요"
+            app:title="이용약관 동의" />
+
+        <!-- 프리미엄 회원 가입 버튼 -->
+        <Preference
+            android:icon="@drawable/premium"
+            android:key="프리미엄_회원가입"
+            android:summary="프리미엄 기능을 사용하려면 회원가입하세요"
+            android:title="프리미엄 회원 가입"
+            app:layout="@layout/custom_premium_button" />
+
+    </PreferenceCategory>
+
+    <!-- 앱 평가 기능 -->
+    <PreferenceCategory app:title="피드백 및 지원">
+        <Preference
+            app:key="앱_평가"
+            app:summary="앱 스토어에서 평가를 남겨주세요"
+            app:title="앱 평가하기" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/sync_header">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

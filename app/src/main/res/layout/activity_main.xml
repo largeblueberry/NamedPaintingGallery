@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- ViewPager2 추가 -->
+    <!-- ViewPager2 -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -12,68 +12,87 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="32dp" />
 
-    <!-- Playback SeekBar -->
-    <SeekBar
-        android:id="@+id/playbackSeekBar"
+    <!-- 컨트롤 버튼 (히스토리, 입력창, 전송 버튼) -->
+    <LinearLayout
+        android:id="@+id/inputContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewPager"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:progress="0"
-        android:max="100" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="10">
 
-    <!-- Control Buttons Layout -->
-    <LinearLayout
-        android:id="@+id/controlButtonsLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/playbackSeekBar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
-        <!-- Change Button -->
+        <!-- 히스토리 버튼 -->
         <ImageButton
-            android:id="@+id/changeButton"
+            android:id="@+id/historyButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_change"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/change" />
+            android:layout_weight="1"
+            android:background="@drawable/rounded_circle"
+            android:src="@drawable/history"
+            android:scaleType="centerInside" />
 
-        <!-- Play/Pause Button -->
-        <ImageButton
-            android:id="@+id/playPauseButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:src="@drawable/ic_play"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/play_pause_button" />
+        <!-- 텍스트 입력 필드 및 질문 버튼 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_background"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
-        <!-- Like Button -->
+            <!-- 텍스트 입력 -->
+            <EditText
+                android:id="@+id/inputEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:hint="무엇이든 물어보세요"
+                android:background="@null"
+                android:padding="8dp"
+                android:textSize="16sp" />
+
+            <!-- 예시 질문 버튼 -->
+            <ImageButton
+                android:id="@+id/exampleQuestionsButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_circle"
+                android:src="@drawable/question_mark"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <!-- 하트/전송 버튼 -->
         <ImageButton
-            android:id="@+id/likeButton"
+            android:id="@+id/sendOrHeartButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_circle"
             android:src="@drawable/ic_like"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/like_button" />
+            android:scaleType="centerInside" />
     </LinearLayout>
 
-    <!-- Speaker SeekBar -->
-    <SeekBar
-        android:id="@+id/speakerSeekBar"
+    <!-- FragmentContainer -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/inputContainer"
+        android:layout_above="@id/bottomNavigationView" />
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/controlButtonsLayout"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:progress="0"
-        android:max="100" />
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled" />
 
 </RelativeLayout>
