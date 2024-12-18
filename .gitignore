@@ -33,7 +33,7 @@ google-services.json
 *.hprof
 
 # API Key file
-api_key.txt
+app/src/main/assets/api_key.txt
 
 # macOS-specific files
 .DS_Store
